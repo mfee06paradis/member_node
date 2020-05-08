@@ -6,7 +6,7 @@ const router = express.Router();
 
 router.get('/', (req, res)=>{
     
-  const sql = "SELECT * FROM members";
+  const sql = "SELECT * FROM member";
   db.query(sql, (error, results, fields)=>{
       if(error){
           console.log(error);
@@ -24,7 +24,7 @@ router.post('/add', (req, res)=>{
     };
     // TODO: 應該檢查表單進來的資料
 
-    const sql = "INSERT INTO `members`(`MemberName`, `MemberPW`, `MemberEmail`) VALUES (?,?,?)";
+    const sql = "INSERT INTO `member`(`memberName`, `memberPw`, `memberEmail`) VALUES (?,?,?)";
 
     db.queryAsync(sql, [
         req.body.memberName,
